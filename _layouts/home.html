@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="home">
+  <h1 class="page-heading">Colors</h1>
+
+  {{ content }}
+
+  <ul class="post-list">
+    {% assign colors = site.colors | sort: 'title' %}
+    {% for page in colors %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ page.url | relative_url }}">
+            <i class="color-sample" style="background-color: #{{ page.hex }};"></i>
+            {{ page.title | escape }}
+          </a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
